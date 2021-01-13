@@ -16,6 +16,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+        //Call API
         val remote = createService(FactsService::class.java)
         val call: Call<List<FactsModel>> = remote.list()
 
@@ -29,6 +31,14 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+
+        //Fragments
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        val fragment = ChooseFactFragment()
+        fragmentTransaction.add(R.id.fragment_choose_fact, fragment)
+//        fragmentTransaction.commit()
+
 
     }
 
