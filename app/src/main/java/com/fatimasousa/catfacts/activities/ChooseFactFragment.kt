@@ -24,7 +24,6 @@ class ChooseFactFragment : Fragment() {
     ): View? {
 
         val view =  inflater.inflate(R.layout.fragment_choose_fact, container, false)
-
         val context = activity as AppCompatActivity
         val btnChooseFact: Button = view.findViewById(R.id.btnChooseFact)
         val txtChooseFact: TextView = view.findViewById(R.id.txtChooseFact)
@@ -56,8 +55,8 @@ class ChooseFactFragment : Fragment() {
 
     private fun startFragment() {
         childFragmentManager.beginTransaction()
-            .replace(R.id.fragment_choose_fact, ShowFactFragment())
-            .commit()
+        .replace(R.id.fragment_choose_fact, ShowFactFragment())
+        .commit()
     }
 }
 
