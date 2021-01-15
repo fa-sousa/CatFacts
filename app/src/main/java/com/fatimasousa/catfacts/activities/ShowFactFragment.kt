@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.fatimasousa.catfacts.R
 
@@ -19,7 +18,7 @@ class ShowFactFragment : Fragment() {
 
         val context = activity as AppCompatActivity
         val btnShowFact: Button = view.findViewById(R.id.btnShowFact)
-        val txtShowFact: TextView = view.findViewById(R.id.txtShowFact)
+//        val txtShowFact: TextView = view.findViewById(R.id.txtShowFact)
 //      val btnBackChoose: Button = v.findViewById(R.id.btnBackChoose)
 
         btnShowFact.setOnClickListener {

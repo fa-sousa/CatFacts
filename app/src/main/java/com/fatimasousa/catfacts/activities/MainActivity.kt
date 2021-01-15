@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.beginTransaction()
                 .replace(R.id.host, ChooseFactFragment())
+                .addToBackStack(null)
                 .commit()
 
     }

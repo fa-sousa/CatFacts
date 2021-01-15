@@ -22,7 +22,7 @@ class ChooseFactFragment : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         val view =  inflater.inflate(R.layout.fragment_choose_fact, container, false)
 
         val context = activity as AppCompatActivity
@@ -30,6 +30,7 @@ class ChooseFactFragment : Fragment() {
         val txtChooseFact: TextView = view.findViewById(R.id.txtChooseFact)
 
         btnChooseFact.setOnClickListener {
+            startFragment()
             callApi()
         }
 
@@ -51,6 +52,12 @@ class ChooseFactFragment : Fragment() {
 
             }
         })
+    }
+
+    private fun startFragment() {
+        childFragmentManager.beginTransaction()
+            .replace(R.id.fragment_choose_fact, ShowFactFragment())
+            .commit()
     }
 }
 
