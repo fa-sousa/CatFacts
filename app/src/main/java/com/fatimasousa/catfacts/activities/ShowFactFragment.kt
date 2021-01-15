@@ -34,7 +34,7 @@ class ShowFactFragment : Fragment() {
             fragment.arguments = bundle
 
             // Call the extension function for fragment transaction
-            context.replaceFragment(fragment)
+//            context.replaceFragment(fragment)
         }
 
         return v
