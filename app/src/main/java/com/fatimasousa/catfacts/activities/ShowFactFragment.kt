@@ -1,6 +1,5 @@
 package com.fatimasousa.catfacts.activities
 
-import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,30 +12,20 @@ import com.fatimasousa.catfacts.R
 
 class ShowFactFragment : Fragment() {
 
-    override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val v =  inflater.inflate(R.layout.fragment_show_fact, container, false)
+    override fun onCreateView( inflater: LayoutInflater,
+                               container: ViewGroup?,
+                               savedInstanceState: Bundle?): View? {
+        val view =  inflater.inflate(R.layout.fragment_show_fact, container, false)
 
-        // Get the activity and widget
         val context = activity as AppCompatActivity
-        val btnShowFact: Button = v.findViewById(R.id.btnShowFact)
-//        val btnBackChoose: Button = v.findViewById(R.id.btnBackChoose)
+        val btnShowFact: Button = view.findViewById(R.id.btnShowFact)
+        val txtShowFact: TextView = view.findViewById(R.id.txtShowFact)
+//      val btnBackChoose: Button = v.findViewById(R.id.btnBackChoose)
 
-
-        // Replace fragment
         btnShowFact.setOnClickListener {
 
-            val bundle = Bundle()
-            val fragment = ShowFactFragment()
-            fragment.arguments = bundle
-
-            // Call the extension function for fragment transaction
-//            context.replaceFragment(fragment)
         }
 
-        return v
+        return view
     }
 }
