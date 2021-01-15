@@ -2,6 +2,7 @@ package com.fatimasousa.catfacts.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import com.fatimasousa.catfacts.R
 import com.fatimasousa.catfacts.models.FactsModel
 import com.fatimasousa.catfacts.services.FactsService
@@ -16,6 +17,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Initially display the first fragment in main activity
+        // Here we do not pass any arguments
+        replaceFragment(ChooseFactFragment())
 
         //Call API
         val remote = createService(FactsService::class.java)
@@ -28,18 +32,24 @@ class MainActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<List<FactsModel>>, response: Response<List<FactsModel>>) {
                 val s = response.body()
-            }
 
+                }
         })
 
-        //Fragments
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        val fragment = ChooseFactFragment()
-        fragmentTransaction.add(R.id.fragment_choose_fact, fragment)
-//        fragmentTransaction.commit()
-
+//        //Fragments
+//        supportFragmentManager.beginTransaction()
+//                .replace(R.id.frameLayout, ChooseFactFragment())
+//                .commit()
 
     }
 
 }
+
+    // Extension function to replace fragment
+    fun AppCompatActivity.replaceFragment(fragment: Fragment){
+        val fragmentManager = supportFragmentManager
+        val transaction = fragmentManager.beginTransaction()
+        transaction.replace(R.id.host,fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
