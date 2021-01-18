@@ -5,32 +5,28 @@
     android:id="@+id/fragment_choose_fact"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#A4A5A5"
     tools:context=".activities.ChooseFactFragment">
 
     <TextView
         android:id="@+id/txtChooseFact"
-        android:layout_width="232dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="191dp"
-        android:layout_marginBottom="59dp"
-        android:padding="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="228dp"
         android:text="Get a fact about cats"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toTopOf="@+id/btnChooseFact"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnChooseFact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="358dp"
+        android:layout_marginTop="69dp"
         android:text="Get Now"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:backgroundTint="#535151"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtChooseFact"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/txtChooseFact" />
 </androidx.constraintlayout.widget.ConstraintLayout>
