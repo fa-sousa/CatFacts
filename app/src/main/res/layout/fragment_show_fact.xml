@@ -10,9 +10,9 @@
 
     <TextView
         android:id="@+id/txtOnlyFact"
-        android:layout_width="287dp"
-        android:layout_height="41dp"
-        android:layout_marginBottom="311dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="404dp"
         android:text="Dummy fact about cat"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -5,32 +5,29 @@
     android:id="@+id/fragment_choose_fact"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A4A5A5"
+    android:background="#FFFFFF"
     tools:context=".activities.ChooseFactFragment">
 
     <TextView
         android:id="@+id/txtCatFact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="366dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginRight="21dp"
-        android:layout_marginBottom="66dp"
+        android:layout_marginTop="188dp"
         android:text="Facts about cats"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/imgCatFact"
-        app:layout_constraintEnd_toEndOf="@+id/imgCatFact"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imgCatFact"
-        android:layout_width="188dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="164dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="48dp"
         android:src="@mipmap/ic_launcher"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/txtCatFact"
         app:layout_constraintTop_toBottomOf="@+id/txtCatFact" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
