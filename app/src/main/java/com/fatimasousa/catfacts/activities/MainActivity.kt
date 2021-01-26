@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
 
         goToChooseFragment()
         handleButtonClick()
-
     }
 
     private fun callApi () {
@@ -34,16 +33,12 @@ class MainActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<List<FactsModel>>, response: Response<List<FactsModel>>) {
                 val result = response.body()
-
                 val textToSend = result?.get(1)?.text
 
                 if(textToSend !== null) {
                     goToShowFragment(textToSend)
                 }
-
-                goToChooseFragment()
             }
-
         })
     }
 
@@ -53,11 +48,15 @@ class MainActivity : AppCompatActivity() {
                 .commit()
     }
 
-    fun goToShowFragment(textToSend: String) {
-
+    private fun goToShowFragment(textToSend: String) {
         val args = Bundle()
         args.putSerializable("text", textToSend)
-        supportFragmentManager.beginTransaction()
+
+        val showFactFragment = ShowFactFragment()
+        showFactFragment.arguments.toString()
+
+        supportFragmentManager
+                .beginTransaction()
                 .replace(R.id.frameLayout, ShowFactFragment())
                 .commit()
     }
@@ -72,7 +71,6 @@ class MainActivity : AppCompatActivity() {
 
         btnGetFact.setOnClickListener{
             callApi()
-            goToShowFragment("text")
         }
     }
 }

@@ -1,8 +1,9 @@
 package com.fatimasousa.catfacts.models
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
-class FactsModel {
+class FactsModel : Serializable {
 
     @SerializedName("_id")
     var id : String = ""
