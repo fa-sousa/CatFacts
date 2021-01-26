@@ -53,11 +53,11 @@ class MainActivity : AppCompatActivity() {
         args.putSerializable("text", textToSend)
 
         val showFactFragment = ShowFactFragment()
-        showFactFragment.arguments.toString()
+        showFactFragment.arguments = args
 
         supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.frameLayout, ShowFactFragment())
+                .replace(R.id.frameLayout, showFactFragment)
                 .commit()
     }
 

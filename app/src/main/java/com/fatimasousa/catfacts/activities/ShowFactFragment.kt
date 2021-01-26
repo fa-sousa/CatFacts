@@ -10,26 +10,28 @@ import com.fatimasousa.catfacts.models.FactsModel
 
 class ShowFactFragment : Fragment() {
 
-    private val txtOnlyFact = R.id.txtOnlyFact
 
-    override fun onCreateView( inflater: LayoutInflater,
-                               container: ViewGroup?,
-                               savedInstanceState: Bundle?): View? {
+
+    override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?,
+    ): View? {
+
+        this.arguments?.getSerializable("text") as FactsModel
 
         inflater.inflate(R.layout.fragment_show_fact, container, true)
 
         return view
+
     }
 
-    companion object {
-        private val ARG_CAUGHT = ShowFactFragment
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        fun newInstance(text: FactsModel): ShowFactFragment {
-            val args: Bundle = Bundle()
-            args.putSerializable(ARG_CAUGHT.toString(), text)
-            val fragment = ShowFactFragment()
-            fragment.arguments = args
-            return fragment
-        }
+        val txtOnlyFact = R.id.txtOnlyFact
+
+
     }
+
 }
