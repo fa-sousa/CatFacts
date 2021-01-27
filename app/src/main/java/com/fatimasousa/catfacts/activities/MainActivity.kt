@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<List<FactsModel>>, response: Response<List<FactsModel>>) {
                 val result = response.body()
-                val textToSend = result?.get(1)?.text
+                val textToSend = result?.get(2)?.text
 
                 if(textToSend !== null) {
                     goToShowFragment(textToSend)

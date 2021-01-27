@@ -17,19 +17,23 @@ class ShowFactFragment : Fragment() {
             savedInstanceState: Bundle?,
     ): View? {
 
-        inflater.inflate(R.layout.fragment_show_fact, container, true)
-
-        return view
+       return inflater.inflate(R.layout.fragment_show_fact, container, false )
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        this.settingFact()
+
+    }
+
+    private fun settingFact(){
+
         val txtOnlyFactFragment = this.arguments?.getSerializable("text") as String
         val txtOnlyFact = getView()?.findViewById(R.id.txtOnlyFact) as TextView
 
-        txtOnlyFact.text = txtOnlyFactFragment
+        txtOnlyFact.setText(txtOnlyFactFragment)
 
     }
 
