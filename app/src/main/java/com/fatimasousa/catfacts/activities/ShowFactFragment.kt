@@ -25,7 +25,6 @@ class ShowFactFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         this.settingFact()
-
     }
 
     private fun settingFact(){

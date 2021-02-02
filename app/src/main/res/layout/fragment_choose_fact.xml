@@ -12,22 +12,25 @@
         android:id="@+id/txtCatFact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="188dp"
+        android:layout_marginBottom="16dp"
         android:text="Facts about cats"
-        android:textSize="24sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <ImageView
-        android:id="@+id/imgCatFact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginTop="48dp"
-        android:src="@mipmap/ic_launcher"
-        app:layout_constraintStart_toStartOf="@+id/txtCatFact"
+        android:id="@+id/imageView"
+        android:layout_width="230dp"
+        android:layout_height="178dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/image_cat"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtCatFact" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
