@@ -1,4 +1,4 @@
-package com.fatimasousa.catfacts.services
+package com.fatimasousa.catfacts.service
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

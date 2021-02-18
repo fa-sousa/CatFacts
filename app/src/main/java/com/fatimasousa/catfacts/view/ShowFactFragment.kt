@@ -1,4 +1,4 @@
-package com.fatimasousa.catfacts.activities
+package com.fatimasousa.catfacts.view
 
 import android.os.Bundle
 import android.view.LayoutInflater

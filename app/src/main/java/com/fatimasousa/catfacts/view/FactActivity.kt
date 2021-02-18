@@ -1,17 +1,17 @@
-package com.fatimasousa.catfacts.activities
+package com.fatimasousa.catfacts.view
 
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.fatimasousa.catfacts.R
-import com.fatimasousa.catfacts.models.FactsModel
-import com.fatimasousa.catfacts.services.FactsService
-import com.fatimasousa.catfacts.services.RetrofitClient
+import com.fatimasousa.catfacts.model.Fact
+import com.fatimasousa.catfacts.service.FactsService
+import com.fatimasousa.catfacts.service.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivity : AppCompatActivity() {
+class FactActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,12 +26,12 @@ class MainActivity : AppCompatActivity() {
         val remote = RetrofitClient.createService(FactsService::class.java)
         val call = remote.list()
 
-        call.enqueue(object : Callback<List<FactsModel>> {
-            override fun onFailure(call: Call<List<FactsModel>>, t: Throwable) {
+        call.enqueue(object : Callback<List<Fact>> {
+            override fun onFailure(call: Call<List<Fact>>, t: Throwable) {
                 val s = t.message
             }
 
-            override fun onResponse(call: Call<List<FactsModel>>, response: Response<List<FactsModel>>) {
+            override fun onResponse(call: Call<List<Fact>>, response: Response<List<Fact>>) {
                 val result = response.body()
                 val textToSend = result?.get(2)?.text
 
