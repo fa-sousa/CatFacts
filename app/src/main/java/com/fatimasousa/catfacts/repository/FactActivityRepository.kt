@@ -27,9 +27,9 @@ object FactActivityRepository {
             ) {
                 Log.v("DEBUG : ", response.body().toString())
 
-                val data = response.body()
+                val result = response.body()
 
-                val msg = data!!.text
+                val msg = result!!.text
 
                 factModel.value = FactModel()
 
@@ -38,6 +38,7 @@ object FactActivityRepository {
 
         return factModel
     }
+
 }
 
 //----------------------------------------------------------------
