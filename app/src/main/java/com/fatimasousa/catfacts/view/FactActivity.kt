@@ -4,12 +4,6 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.fatimasousa.catfacts.R
-import com.fatimasousa.catfacts.model.Fact
-import com.fatimasousa.catfacts.service.FactsService
-import com.fatimasousa.catfacts.service.RetrofitClient
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class FactActivity : AppCompatActivity() {
 
@@ -19,27 +13,6 @@ class FactActivity : AppCompatActivity() {
 
         goToChooseFragment()
         handleButtonClick()
-    }
-
-    private fun callApi () {
-
-        val remote = RetrofitClient.createService(FactsService::class.java)
-        val call = remote.list()
-
-        call.enqueue(object : Callback<List<Fact>> {
-            override fun onFailure(call: Call<List<Fact>>, t: Throwable) {
-                val s = t.message
-            }
-
-            override fun onResponse(call: Call<List<Fact>>, response: Response<List<Fact>>) {
-                val result = response.body()
-                val textToSend = result?.get(2)?.text
-
-                if(textToSend !== null) {
-                    goToShowFragment(textToSend)
-                }
-            }
-        })
     }
 
     private fun goToChooseFragment () {
@@ -69,8 +42,8 @@ class FactActivity : AppCompatActivity() {
             goToChooseFragment()
         }
 
-        btnGetFact.setOnClickListener{
-            callApi()
-        }
+//        btnGetFact.setOnClickListener{
+//            callApi()
+//        }
     }
 }

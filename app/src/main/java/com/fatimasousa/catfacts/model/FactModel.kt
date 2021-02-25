@@ -2,7 +2,7 @@ package com.fatimasousa.catfacts.model
 
 import com.google.gson.annotations.SerializedName
 
-class Fact {
+class FactModel {
 
     @SerializedName("_id")
     var id : String = ""
@@ -12,7 +12,6 @@ class Fact {
 
     @SerializedName("text")
     var text : String = ""
-
 
 }
 
