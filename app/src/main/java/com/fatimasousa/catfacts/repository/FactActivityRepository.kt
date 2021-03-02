@@ -1,8 +1,7 @@
 package com.fatimasousa.catfacts.repository
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.fatimasousa.catfacts.model.FactModel
+import com.fatimasousa.catfacts.model.FactsModel
 import com.fatimasousa.catfacts.service.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -10,29 +9,27 @@ import retrofit2.Response
 
 object FactActivityRepository {
 
-    val factModel = MutableLiveData<FactModel>()
+    val factModel = MutableLiveData<FactsModel>()
 
-    fun callApi(): MutableLiveData<FactModel> {
+    fun getServicesApiCall(): MutableLiveData<FactsModel> {
 
-        val call = RetrofitClient.factsService.list()
+        val call = RetrofitClient.apiInterface.getServices()
 
-        call.enqueue(object: Callback<FactModel> {
-            override fun onFailure(call: Call<FactModel>, t: Throwable) {
-                Log.v("DEBUG : ", t.message.toString())
+        call.enqueue(object: Callback<FactsModel> {
+            override fun onFailure(call: Call<FactsModel>, t: Throwable) {
+//                Log.v("DEBUG : ", t.message.toString())
             }
 
             override fun onResponse(
-                    call: Call<FactModel>,
-                    response: Response<FactModel>
+                    call: Call<FactsModel>,
+                    response: Response<FactsModel>
             ) {
-                Log.v("DEBUG : ", response.body().toString())
+//                Log.v("DEBUG : ", response.body().toString())
 
-                val result = response.body()
+                val data = response.body()
+                val msg = data!!.text
 
-                val msg = result!!.text
-
-                factModel.value = FactModel()
-
+                factModel.value = FactsModel(msg)
             }
         })
 

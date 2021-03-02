@@ -29,10 +29,10 @@ object RetrofitClient {
                 .addConverterFactory(GsonConverterFactory.create())
     }
 
-    val factsService: FactsService by lazy {
+    val apiInterface: ApiInterface by lazy {
         retrofitClient
                 .build()
-                .create(FactsService::class.java)
+                .create(ApiInterface::class.java)
     }
 }
 

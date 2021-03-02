@@ -1,26 +1,16 @@
 package com.fatimasousa.catfacts.view
 
-import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import com.fatimasousa.catfacts.R
-import com.fatimasousa.catfacts.repository.FactActivityRepository.callApi
-import com.fatimasousa.catfacts.viewmodel.FactActivityViewModel
+import com.fatimasousa.catfacts.repository.FactActivityRepository
 import kotlinx.android.synthetic.main.activity_main.*
 
 class FactActivity : AppCompatActivity() {
 
-    lateinit var context: Context
-    lateinit var factActivityViewModel: FactActivityViewModel
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        context = this@FactActivity
-
-        factActivityViewModel = ViewModelProvider(this).get(FactActivityViewModel::class.java)
 
         goToChooseFragment()
         handleButtonClick()
@@ -41,27 +31,26 @@ class FactActivity : AppCompatActivity() {
             goToChooseFragment()
         }
 
-        btnGetFact.setOnClickListener{
-            callApi()
+        btnGetFact.setOnClickListener {
+            FactActivityRepository.getServicesApiCall()
+            goToShowFragment("")
         }
 
     }
 
-    fun goToShowFragment(textToSend: String) {
+    private fun goToShowFragment(textToSend: String) {
 
-        factActivityViewModel.getUser()!!.observe(this, { factModel ->
+        val args = Bundle()
+        args.putSerializable("text", textToSend)
 
-            val args = Bundle()
-            args.putSerializable("text", textToSend)
+        val showFactFragment = ShowFactFragment()
+        showFactFragment.arguments = args
 
-            val showFactFragment = ShowFactFragment()
-            showFactFragment.arguments = args
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.frameLayout, showFactFragment)
+                .commit()
 
-            supportFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.frameLayout, showFactFragment)
-                    .commit()
-        })
     }
 }
 

@@ -6,10 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.fatimasousa.catfacts.R
-
+import com.fatimasousa.catfacts.viewmodel.FactActivityViewModel
+import kotlinx.android.synthetic.main.fragment_show_fact.*
 
 class ShowFactFragment : Fragment() {
+
+    var context = this@ShowFactFragment
+    lateinit var factActivityViewModel: FactActivityViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -23,13 +28,22 @@ class ShowFactFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        context = this@ShowFactFragment
 
-        this.settingFact()
+        factActivityViewModel = ViewModelProvider(this).get(FactActivityViewModel::class.java)
+
+
+        factActivityViewModel.getFact()!!.observe(viewLifecycleOwner, { factModel ->
+
+            val msg = factModel.text
+//            this.txtOnlyFact.setText(msg)
+            this.settingFact()
+        })
     }
 
     private fun settingFact(){
 
-        val txtOnlyFactFragment = this.arguments?.getSerializable("text") as String
+        val txtOnlyFactFragment = this.arguments?.getSerializable("textToSend") as String
         val txtOnlyFact = getView()?.findViewById(R.id.txtOnlyFact) as TextView
 
         txtOnlyFact.setText(txtOnlyFactFragment)
