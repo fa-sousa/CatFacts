@@ -27,7 +27,8 @@ object FactActivityRepository {
 //                Log.v("DEBUG : ", response.body().toString())
 
                 val data = response.body()
-                val msg = data!!.text
+                val msg = data?.text.toString()
+                //val textToSend = result?.get(2)?.text
 
                 factModel.value = FactsModel(msg)
             }

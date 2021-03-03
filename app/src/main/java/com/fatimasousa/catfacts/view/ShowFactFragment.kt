@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.fatimasousa.catfacts.R
@@ -32,23 +31,12 @@ class ShowFactFragment : Fragment() {
 
         factActivityViewModel = ViewModelProvider(this).get(FactActivityViewModel::class.java)
 
-
         factActivityViewModel.getFact()!!.observe(viewLifecycleOwner, { factModel ->
 
             val msg = factModel.text
-//            this.txtOnlyFact.setText(msg)
-            this.settingFact()
+            this.txtOnlyFact.text = msg
+
         })
     }
-
-    private fun settingFact(){
-
-        val txtOnlyFactFragment = this.arguments?.getSerializable("textToSend") as String
-        val txtOnlyFact = getView()?.findViewById(R.id.txtOnlyFact) as TextView
-
-        txtOnlyFact.setText(txtOnlyFactFragment)
-
-    }
-
 }
 
