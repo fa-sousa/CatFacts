@@ -25,7 +25,7 @@ object FactActivityRepository {
                     response: Response<List<FactsModel>>
             ) {
                 val data = response.body()
-                val msg = data?.get(0)?.text
+                val msg = data?.random()?.text
 
                 factModel.value = FactsModel(msg)
             }
