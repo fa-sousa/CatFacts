@@ -7,6 +7,6 @@ import retrofit2.http.GET
 interface ApiInterface {
 
     @GET("facts")
-    fun getServices() : Call<FactsModel>
+    fun getServices() : Call<List<FactsModel>>
 
 }

@@ -15,20 +15,17 @@ object FactActivityRepository {
 
         val call = RetrofitClient.apiInterface.getServices()
 
-        call.enqueue(object: Callback<FactsModel> {
-            override fun onFailure(call: Call<FactsModel>, t: Throwable) {
+        call.enqueue(object: Callback<List<FactsModel>> {
+            override fun onFailure(call: Call<List<FactsModel>>, t: Throwable) {
 //                Log.v("DEBUG : ", t.message.toString())
             }
 
             override fun onResponse(
-                    call: Call<FactsModel>,
-                    response: Response<FactsModel>
+                    call: Call<List<FactsModel>>,
+                    response: Response<List<FactsModel>>
             ) {
-//                Log.v("DEBUG : ", response.body().toString())
-
                 val data = response.body()
-                val msg = data?.text.toString()
-                //val textToSend = result?.get(2)?.text
+                val msg = data?.get(0)?.text
 
                 factModel.value = FactsModel(msg)
             }
@@ -38,32 +35,3 @@ object FactActivityRepository {
     }
 
 }
-
-//----------------------------------------------------------------
-
-//object FactActivityRepository {
-//
-//    private fun callApi () {
-//
-//        val remote = RetrofitClient.createService(FactsService::class.java)
-//        val call = remote.list()
-//
-//        call.enqueue(object : Callback<List<FactModel>> {
-//            override fun onFailure(call: Call<List<FactModel>>, t: Throwable) {
-//                val s = t.message
-//            }
-//
-//            override fun onResponse(call: Call<List<FactModel>>, response: Response<List<FactModel>>) {
-//                val result = response.body()
-//                val textToSend = result?.get(2)?.text
-//
-//                if(textToSend !== null) {
-//                    goToShowFragment(textToSend)
-//                }
-//            }
-//        })
-//    }
-//
-//
-//
-//}
