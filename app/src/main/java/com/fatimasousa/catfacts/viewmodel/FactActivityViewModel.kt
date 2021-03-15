@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.fatimasousa.catfacts.model.FactsModel
 import com.fatimasousa.catfacts.repository.FactActivityRepository
 
-class FactActivityViewModel : ViewModel() {
+class FactActivityViewModel(FactActivityRepository: FactActivityRepository) : ViewModel() {
 
     //atualiza apenas os observadores de componentes e avisa
     var servicesLiveData : MutableLiveData<FactsModel>? = null
