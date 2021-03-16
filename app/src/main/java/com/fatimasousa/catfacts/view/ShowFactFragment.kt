@@ -5,15 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.fatimasousa.catfacts.R
 import com.fatimasousa.catfacts.viewmodel.FactActivityViewModel
 import kotlinx.android.synthetic.main.fragment_show_fact.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ShowFactFragment : Fragment() {
 
-    var context = this@ShowFactFragment
-    lateinit var factActivityViewModel: FactActivityViewModel
+    private val viewModel : FactActivityViewModel by viewModel()
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -27,11 +26,11 @@ class ShowFactFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        context = this@ShowFactFragment
+//        context = this@ShowFactFragment
 
-        factActivityViewModel = ViewModelProvider(this).get(FactActivityViewModel::class.java)
+//        viewModel = ViewModelProvider(this).get(FactActivityViewModel::class.java)
 
-        factActivityViewModel.getFact()!!.observe(viewLifecycleOwner, { factModel ->
+        viewModel.getFact()!!.observe(viewLifecycleOwner, { factModel ->
 
             val msg = factModel.text
             this.txtOnlyFact.text = msg

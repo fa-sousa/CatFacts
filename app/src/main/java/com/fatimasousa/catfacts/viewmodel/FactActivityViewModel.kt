@@ -8,7 +8,6 @@ import com.fatimasousa.catfacts.repository.FactActivityRepository
 
 class FactActivityViewModel(FactActivityRepository: FactActivityRepository) : ViewModel() {
 
-    //atualiza apenas os observadores de componentes e avisa
     var servicesLiveData : MutableLiveData<FactsModel>? = null
 
     fun getFact() : LiveData<FactsModel>? {

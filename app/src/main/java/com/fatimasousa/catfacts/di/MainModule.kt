@@ -7,10 +7,13 @@ import org.koin.dsl.module
 
 val mainModule = module {
 
+    factory {
+        FactActivityRepository
+    }
+
     viewModel {
         FactActivityViewModel(
                 FactActivityRepository
         )
     }
-
 }

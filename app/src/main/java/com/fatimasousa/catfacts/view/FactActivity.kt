@@ -27,7 +27,6 @@ class FactActivity : AppCompatActivity() {
                 .beginTransaction()
                 .replace(R.id.frameLayout, ShowFactFragment())
                 .commit()
-
     }
 
     private fun handleButtonClick() {
@@ -42,6 +41,5 @@ class FactActivity : AppCompatActivity() {
         btnGetFact.setOnClickListener {
             goToShowFragment()
         }
-
     }
 }
