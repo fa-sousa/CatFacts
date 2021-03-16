@@ -26,16 +26,23 @@ class ShowFactFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        context = this@ShowFactFragment
-
-//        viewModel = ViewModelProvider(this).get(FactActivityViewModel::class.java)
 
         viewModel.getFact()!!.observe(viewLifecycleOwner, { factModel ->
 
             val msg = factModel.text
             this.txtOnlyFact.text = msg
 
+            val imagesCat = arrayOf<Int>(
+                    R.drawable.image_cat_01,
+                    R.drawable.image_cat_02,
+                    R.drawable.image_cat_03,
+                    R.drawable.image_cat_04
+            )
+
+            val imgRandom = imagesCat.random()
+            this.imgRandom.setImageResource(imgRandom.toInt())
         })
     }
 }
+
 
